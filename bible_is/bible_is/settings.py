@@ -17,7 +17,7 @@ NEWSPIDER_MODULE = "bible_is.spiders"
 #USER_AGENT = "bible_is (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 CONCURRENT_REQUESTS = 16
@@ -53,6 +53,10 @@ CONCURRENT_REQUESTS = 16
 #DOWNLOADER_MIDDLEWARES = {
 #    "bible_is.middlewares.BibleIsDownloaderMiddleware": 543,
 #}
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'scrapy_user_agents.middlewares.RandomUserAgentMiddleware': 400,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
