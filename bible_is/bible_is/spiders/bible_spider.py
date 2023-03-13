@@ -267,7 +267,7 @@ NEXT_URLS = [
 ]
 WORK_DIR = '/Users/khangnguyen/lab/bahnar_tts/bible'
 LANG = ['BDQDVS', 'VIEBIB']
-def write_2_dir_file(current_url, content, vie_lang=0):
+def write_text_2_dir_file(current_url, content, vie_lang=0):
     #    https://live.bible.is/bible/BDQDVS/MAT/1?audio_type=audio_drama
     # => BDQDVS_MAT_1
     name_segments = current_url.replace('?', '/').split('/')[4:7]
@@ -278,28 +278,45 @@ def write_2_dir_file(current_url, content, vie_lang=0):
         os.mkdir(f'{WORK_DIR}/{LANG[vie_lang]}/{name_segments[1]}')
     with open(f'{WORK_DIR}/{LANG[vie_lang]}/{name_segments[1]}/{text_file_name}.txt', 'w') as f:
         f.write(content)
+def save_audio(current_url, content, vie_lang=0)
+    #    https://live.bible.is/bible/BDQDVS/MAT/1?audio_type=audio_drama
+    # => BDQDVS_MAT_1
+    name_segments = current_url.replace('?', '/').split('/')[4:7]
+    text_file_name = '_'.join(name_segments)
+    if not os.path.exists(f'{WORK_DIR}/{LANG[vie_lang]}'):
+        os.mkdir(f'{WORK_DIR}/{LANG[vie_lang]}')
+    if not os.path.exists(f'{WORK_DIR}/{LANG[vie_lang]}/{name_segments[1]}'):
+        os.mkdir(f'{WORK_DIR}/{LANG[vie_lang]}/{name_segments[1]}')
+    with open(f'{WORK_DIR}/{LANG[vie_lang]}/{name_segments[1]}/{text_file_name}.txt', 'w') as f:
+        f.write(content)
+
 class BibleSpider(scrapy.Spider):
     name = 'bible'
-    start_urls = ['https://live.bible.is/bible/BDQDVS/EPH/6?audio_type=audio_drama']
+    start_urls = ['https://live.bible.is/bible/BDQDVS/MAT/1?audio_type=audio_drama']
     current_url = start_urls[0]
-    index = 173
+    index = 0
     def parse(self, response):
+
+        # Scraping text:
+        """
         chapter_text = response.css('div.justify').css('::text').getall()
         filtered_chapter_text = [verse for verse in chapter_text
                                  if not (verse.isdigit() or
                                          (verse[0] == '"' and verse[1:-1].isdigit()) or verse == "\xa0")]
         complete_chapter = ''.join(filtered_chapter_text).strip()
         # write to a file with appropriate name
-        write_2_dir_file(self.current_url, complete_chapter)
+        write_text_2_dir_file(self.current_url, complete_chapter)
+        """
+        # Scraping audio
+
         try:
             next_page = NEXT_URLS[self.index]
             self.current_url = next_page
             self.index += 1
-            time.sleep(random.randint(10, 50))
+            time.sleep(random.randint(10, 40))
             yield response.follow(next_page, callback = self.parse)
         except IndexError:
             return
-
     """
     SCRAPING TEXT:
     get text from div.justify (into an array)
