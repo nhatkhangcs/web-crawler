@@ -38,6 +38,7 @@ PATHS = [
     "MAT/26?audio_type=audio_drama",
     "MAT/27?audio_type=audio_drama",
     "MAT/28?audio_type=audio_drama",
+
     "MRK/1?audio_type=audio_drama",
     "MRK/2?audio_type=audio_drama",
     "MRK/3?audio_type=audio_drama",
@@ -54,6 +55,7 @@ PATHS = [
     "MRK/14?audio_type=audio_drama",
     "MRK/15?audio_type=audio_drama",
     "MRK/16?audio_type=audio_drama",
+
     "LUK/1?audio_type=audio_drama",
     "LUK/2?audio_type=audio_drama",
     "LUK/3?audio_type=audio_drama",
@@ -78,6 +80,7 @@ PATHS = [
     "LUK/22?audio_type=audio_drama",
     "LUK/23?audio_type=audio_drama",
     "LUK/24?audio_type=audio_drama",
+
     "JHN/1?audio_type=audio_drama",
     "JHN/2?audio_type=audio_drama",
     "JHN/3?audio_type=audio_drama",
@@ -99,6 +102,7 @@ PATHS = [
     "JHN/19?audio_type=audio_drama",
     "JHN/20?audio_type=audio_drama",
     "JHN/21?audio_type=audio_drama",
+
     "ACT/1?audio_type=audio_drama",
     "ACT/2?audio_type=audio_drama",
     "ACT/3?audio_type=audio_drama",
@@ -127,15 +131,8 @@ PATHS = [
     "ACT/26?audio_type=audio_drama",
     "ACT/27?audio_type=audio_drama",
     "ACT/28?audio_type=audio_drama",
+
     "ROM/1?audio_type=audio_drama",
-
-
-
-
-
-
-
-    
     "ROM/2?audio_type=audio_drama",
     "ROM/3?audio_type=audio_drama",
     "ROM/4?audio_type=audio_drama",
@@ -151,6 +148,8 @@ PATHS = [
     "ROM/14?audio_type=audio_drama",
     "ROM/15?audio_type=audio_drama",
     "ROM/16?audio_type=audio_drama",
+
+
     "1CO/1?audio_type=audio_drama",
     "1CO/2?audio_type=audio_drama",
     "1CO/3?audio_type=audio_drama",
