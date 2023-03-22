@@ -272,8 +272,6 @@ PATHS = [
     "REV/22?audio_type=audio_drama"
 ]
 
-8
-
 NHATKHANG = [
     "https://content.cdn.dbp-prod.dbp4.org/audio/BDQDVS/BDQDVSN2DA/B01___01_Matthew_____BDQDVSN2DA.mp3?x-amz-transaction=149402&Expires=1679480021&Signature=QcHqYcU~7apAAQ1wduPbRQRMQC7p-Ndyd9NpsLG3IGZTv6loRsVjoPVp7K9dfF9U7UAh00w~earZWtNUojNqRFh7ERp6zherx6UHOfSl-gsgD5Z1whInuXf66hlbHrUxCbo6F1J1M-HepLDzxTWGFV-5ZRABPboloCaqa34hLGtPcYINhv15pvjykWJXgvnllzds2mlSzrLVnYYXtqK-LfSqfaqK477Ct6IXcXx-zzEFZXkaaFzWmOztJbPLV5Qayy1XO5RXU3-bvbyrMIyX30VDOAg9qUpE1AE3sbG6hiI91jhtCjgoxfpaYvjtGf4Tj3rph0PbiJcfp9eAo5RzhA__&Key-Pair-Id=APKAI4ULLVMANLYYPTLQ",
     "https://content.cdn.dbp-prod.dbp4.org/audio/BDQDVS/BDQDVSN2DA/B01___02_Matthew_____BDQDVSN2DA.mp3?x-amz-transaction=4870515&Expires=1679480048&Signature=cUbz6dS6gLfjwQFVTRZ4fi52hrN5KC86~55bNW-Z2KCyUwcSbXXW~NAyqBEZJxF3krY5yDIxRHJxRiuZTwIc8oKyMdLk-awj6R2tnIMCFJLfaJSO5zHCEkaJWKurqTTUiA9KFJtfGQpp0JV~F4C-SRrTdML-jlmuRByi3xffx843vJV3uf4~BmxVqujtk7AW3M0FdrmD0PPPONbrUBqzQ-KHHdRCz6XGu0lv4l1v~-gri55Kh8DO5CPdHAKJLORV9JQPNOGUOhceh4048caBIzNUsDjx62dagETDXG0IVuzhn292jyOaSboa4seogjX4b0MS40HxP-0tShDcWPBPQA__&Key-Pair-Id=APKAI4ULLVMANLYYPTLQ",
@@ -359,15 +357,3 @@ class BibleSpider(scrapy.Spider):
             yield response.follow(next_page, callback=self.parse)
         except IndexError:
             return
-
-
-i = 1
-for url in NHATKHANG:
-    response = requests.get(url)
-    
-    # Save the downloaded content to a file on disk
-    with open("audios/audio{i}.mp3", 'wb') as f:
-        f.write(response.content)
-
-    i = i + 1
-    # Convert the downloaded file to a desired format (e.g. WAV)
