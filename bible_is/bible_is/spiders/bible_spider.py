@@ -2,8 +2,6 @@ import scrapy
 import time
 import random
 import os
-import requests
-import subprocess
 
 WORK_DIR = '/Users/khangnguyen/lab/bahnar_tts/bible'
 LANG = ['BDQDVS', 'VIEBIB']
